@@ -1,0 +1,4 @@
+hy
+requests
+ipython
+beautifulsoup4
