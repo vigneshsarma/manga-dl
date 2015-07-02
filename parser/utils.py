@@ -1,4 +1,5 @@
 import os
+import time
 import json
 import errno
 import shutil
@@ -20,6 +21,9 @@ def store_index(index, dir_name, file_name):
 def get_index_from_store(dir_name, file_name):
     path = dir_name + file_name
     if not os.path.exists(path):
+        return False
+    one_day = 60 * 60 * 24
+    if time.time() - os.path.getmtime(path) > one_day:
         return False
     with open(path) as f:
         return json.load(f)
