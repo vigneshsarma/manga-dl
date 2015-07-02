@@ -1,4 +1,4 @@
-hy
 requests
 ipython
 beautifulsoup4
+wrapt==1.10.4
