@@ -35,6 +35,10 @@ def main():
     for c_id in chapters:
         print c_id, chapters_index[c_id]
         mangareader.get_chapter(search, c_id, chapters_index[c_id])
+    master_folder = search.replace(' ', '_') + '/'
+    utils.make_cbz_with_many(
+        file_name, ["%sch%d" % (master_folder, c_id) for c_id in chapters],
+        delete_folder=True)
     # print_links(chapters)
 
 

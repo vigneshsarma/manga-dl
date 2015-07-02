@@ -49,6 +49,16 @@ def make_cbz(folder, delete_folder=False):
         shutil.rmtree(folder)
 
 
+def make_cbz_with_many(name, folders, delete_folder=False):
+    with ZipFile(name + '.cbz', mode='w') as cbz:
+        for folder in folders:
+            for page in os.listdir(folder):
+                cbz.write(os.path.join(folder, page))
+
+            if delete_folder:
+                shutil.rmtree(folder)
+
+
 def get_parsed(url):
     return BeautifulSoup(requests.get(url).content)
 
